@@ -10,13 +10,15 @@ ini_set('display_errors', 'On');
 
 error_reporting(E_ALL | E_STRICT);
 
-main::start();
+main::start("example.csv");
 
 class main {
 
-    static public function start() {
+    static public function start($filename) {
 
-        $records = csv::getRecords();
+        $records = csv::getRecords($filename);
+
+        print_r($records);
 
         $table = html::generateTable($records);
 
@@ -27,11 +29,22 @@ class main {
 
 class csv {
 
-    static public function getRecords() {
+    static public function getRecords($filename) {
 
-        $records = 'test';
+        $file = fopen($filename, "r");
+
+        while (! feof($file)) {
+
+            $record = fgetcsv($file);
+
+            $records[] = $record;
+
+        }
+
+        fclose($file);
 
         return $records;
+
     }
 
 }
@@ -51,7 +64,6 @@ class system {
 
     static public function printPage($page) {
 
-        echo $page;
 
     }
 
