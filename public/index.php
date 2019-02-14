@@ -75,8 +75,14 @@ class record {
 
         }
 
-        print_r($this);
+    }
 
+    //cannot put objects into foreach loop
+    public function returnArray() {
+
+        $array = (array) $this;
+
+        return $array;
 
     }
 
@@ -101,9 +107,14 @@ class html {
 
     static public function generateTable($records) {
 
-        $table = $records;
+        foreach($records as $record) {
 
-        return $table;
+            $array = $record->returnArray();
+
+            print_r($array);
+
+        }
+
     }
 
 }
