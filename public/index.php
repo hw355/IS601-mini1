@@ -107,11 +107,31 @@ class html {
 
     static public function generateTable($records) {
 
+        $count = 0;
+
         foreach($records as $record) {
 
             $array = $record->returnArray();
 
-            print_r($array);
+            if($count == 0) {
+
+                $fields = array_keys($array);
+
+                $values = array_values($array);
+
+                print_r($fields);
+
+                print_r($values);
+
+            }else{
+
+                $values = array_values($array);
+
+                print_r($values);
+
+            }
+
+            $count++;
 
         }
 
