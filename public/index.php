@@ -29,25 +29,29 @@ class csv {
 
     static public function getRecords() {
 
-       
+        $records = 'test';
 
+        return $records;
     }
 
 }
 
 class html {
 
-    static public function generateTable() {
+    static public function generateTable($records) {
 
+        $table = $records;
 
+        return $table;
     }
 
 }
 
 class system {
 
-    static public function printPage() {
+    static public function printPage($page) {
 
+        echo $page;
 
     }
 
