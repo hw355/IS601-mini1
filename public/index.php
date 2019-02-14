@@ -37,7 +37,7 @@ class csv {
 
             $record = fgetcsv($file);
 
-            $records[] = $record;
+            $records[] = recordFactory::create();
 
         }
 
@@ -45,6 +45,22 @@ class csv {
 
         return $records;
 
+    }
+
+}
+
+class record {
+
+
+}
+
+class recordFactory {
+
+    static public function create(Array $array = null) {
+
+        $record = new record();
+
+        return $record;
     }
 
 }
