@@ -6,5 +6,45 @@
  * Time: 4:48 PM
  */
 
-echo 'test';
+main::start();
 
+class main {
+
+    static public function start() {
+
+        $records = csv::getRecords();
+
+        $table = html::generateTable($records);
+
+        system::printPage($table);
+
+    }
+}
+
+class csv {
+
+    static public function getRecords() {
+
+        
+
+    }
+
+}
+
+class html {
+
+    static public function generateTable() {
+
+
+    }
+
+}
+
+class system {
+
+    static public function printPage() {
+
+
+    }
+
+}
