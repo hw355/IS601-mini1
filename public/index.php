@@ -86,7 +86,7 @@ class record {
 
     }
 
-    public function createProperty($name = 'first', $value = 'keith') {
+    public function createProperty($name, $value) {
 
         $this->{$name} = $value;
     }
@@ -109,8 +109,6 @@ class html {
 
         $html = '<table>';
 
-        $html .='<tr>';
-
         $count = 0;
 
         foreach ($records as $record){
@@ -119,32 +117,47 @@ class html {
 
                 if($count == 0) {
 
-                    foreach($array as $fields=>$value){
+                    $html .='<tr>';
 
-                        $html .= '<th>' . htmlspecialchars($fields) . '</th>';
+                    foreach($array as $key => $value){
+
+                        $html .= '<th>' . htmlspecialchars($key) . '</th>';
+
                     }
 
                     $html .= '</tr>';
 
-                    print_r($html);
+                    $html .= '<tr>';
 
-                    //$values = array_values($array);
+                    foreach( $array as $key => $value){
 
-                   // print_r($values);
+                        $html .= '<td>' . htmlspecialchars($value) . '</td>';
 
+                    }
 
+                    $html .= '</tr>';
 
                 }else{
 
-                    //$values = array_values($array);
+                    $html .= '<tr>';
 
-                    //print_r($values);
+                    foreach( $array as $key => $value){
+
+                        $html .= '<td>' . htmlspecialchars($value) . '</td>';
+
+                    }
+
+                    $html .= '</tr>';
 
                 }
 
             $count++;
 
         }
+
+        print($html);
+
+        $html .= '</table>';
 
     }
 
