@@ -107,29 +107,40 @@ class html {
 
     static public function generateTable($records) {
 
+        $html = '<table>';
+
+        $html .='<tr>';
+
         $count = 0;
 
-        foreach($records as $record) {
+        foreach ($records as $record){
 
             $array = $record->returnArray();
 
-            if($count == 0) {
+                if($count == 0) {
 
-                $fields = array_keys($array);
+                    foreach($array as $fields=>$value){
 
-                $values = array_values($array);
+                        $html .= '<th>' . htmlspecialchars($fields) . '</th>';
+                    }
 
-                print_r($fields);
+                    $html .= '</tr>';
 
-                print_r($values);
+                    print_r($html);
 
-            }else{
+                    //$values = array_values($array);
 
-                $values = array_values($array);
+                   // print_r($values);
 
-                print_r($values);
 
-            }
+
+                }else{
+
+                    //$values = array_values($array);
+
+                    //print_r($values);
+
+                }
 
             $count++;
 
