@@ -20,6 +20,8 @@ class main {
 
         $table = html::generateTable($records);
 
+        print_r($table);
+
         system::printPage($table);
 
     }
@@ -107,57 +109,36 @@ class html {
 
     static public function generateTable($records) {
 
-        $html = '<table>';
-
         $count = 0;
 
-        foreach ($records as $record){
+        $arrays = array();
 
-            $array = $record->returnArray();
+        foreach($records as $record) {
 
-                if($count == 0) {
+            $array = $record->returnarray();
 
-                    $html .='<tr>';
+            if($count == 0) {
 
-                    foreach($array as $key => $value){
+                $fields = array_keys($array);
 
-                        $html .= '<th>' . htmlspecialchars($key) . '</th>';
+                $arrays[] = $fields;
 
-                    }
+                $values = array_values($array);
 
-                    $html .= '</tr>';
+                $arrays[] = $values;
 
-                    $html .= '<tr>';
+            }else{
 
-                    foreach( $array as $key => $value){
+                $values = array_values($array);
 
-                        $html .= '<td>' . htmlspecialchars($value) . '</td>';
+                $arrays[] = $values;
 
-                    }
-
-                    $html .= '</tr>';
-
-                }else{
-
-                    $html .= '<tr>';
-
-                    foreach( $array as $key => $value){
-
-                        $html .= '<td>' . htmlspecialchars($value) . '</td>';
-
-                    }
-
-                    $html .= '</tr>';
-
-                }
+            }
 
             $count++;
-
         }
 
-        print($html);
-
-        $html .= '</table>';
+        return $arrays;
 
     }
 
@@ -166,6 +147,7 @@ class html {
 class system {
 
     static public function printPage($page) {
+
 
 
     }
