@@ -10,6 +10,25 @@ ini_set('display_errors', 'On');
 
 error_reporting(E_ALL | E_STRICT);
 
+
+echo '<html><head>';
+
+echo '<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">';
+
+echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">';
+
+echo '<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>';
+
+echo '</head>';
+
+
+echo '</html>';
+
+
+
+
+
+
 main::start("example.csv");
 
 class main {
@@ -148,6 +167,41 @@ class system {
 
     static public function printPage($page) {
 
+        echo '<html lang = "en"><div class="container">';
+
+        echo '<table class="table table-striped">';
+
+        echo '<thead><tr>';
+
+        echo '<th scope="col">#</th><th scope="col">Country</th><th scope="col">VFS</th><th scope="col">VF</th><th scope="col">VOA</th><th scope="col">VR</th></tr>';
+
+        echo '</thead><tbody><tr>';
+
+        echo '<th scope="row">1</th>';
+
+        echo '<td>United Arab Emirates</td>';
+
+        echo '<td>167</td>';
+
+        echo '<td>113</td>';
+
+        echo '<td>54</td>';
+
+        echo '<td>31</td></tr>';
+
+        echo '<tr><th scope="row">2</th>';
+
+        echo '<td>United States</td>';
+
+        echo '<td>157</td>';
+
+        echo '<td>113</td>';
+
+        echo '<td>59</td>';
+
+        echo '<td>30</td>';
+
+        echo '</tr></tbody></table></html>';
 
 
     }
