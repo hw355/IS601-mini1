@@ -1,5 +1,4 @@
-First,Last,UCID
-Keith,Williams,kwilliam
-Smith,Joe,jsmith
-Karen,White,wk112
-Rox,Chad,cr98
+FirstName,LastName,UCID,GRADE
+Keith,Williams,kwilliam,A
+Joe,Smith,jsmith,B
+Chad,White,whc,C

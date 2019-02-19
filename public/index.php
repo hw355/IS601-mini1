@@ -157,29 +157,27 @@ class html {
 
     static public function returnTable($table) {
 
-
-        return "<table class='table-striped'>".$table.'</table>';
+        return "<table class='table-striped'>".$table."</table>";
 
     }
 
     static public function returnTh($Th) {
 
-        return '<th scope="row">'.$Th.'</th>';
+        return '<th>'.$Th.'</th>';
 
     }
 
-    static public function returnTr($Tr = 5) {
+    static public function returnTr($Tr) {
 
         return '<tr>'.$Tr.'</tr>';
 
     }
 
-    static public function returnTd($Td = 6) {
+    static public function returnTd($Td) {
 
         return '<td>'.$Td.'</td>';
 
     }
-
 
 }
 
@@ -187,6 +185,43 @@ class system {
 
     static public function printPage($table) {
 
+        $rows = null;
+
+        $count = 0;
+
+        foreach ($table as $row) {
+
+            $cells = null;
+
+            if($count == 0) {
+
+                foreach ($row as $cell) {
+
+                    $cells .= html::returnTh($cell);
+
+                }
+
+                $rows .= html::returnTr($cells);
+
+            }else {
+
+                foreach ($row as $cell) {
+
+                    $cells .= html::returnTd($cell);
+
+                }
+
+                $rows .= html::returnTr($cells);
+
+            }
+
+            $count++;
+
+        }
+
+        $page = html::returnTable($rows);
+
+        print $page;
 
     }
 
